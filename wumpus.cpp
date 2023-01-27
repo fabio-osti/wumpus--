@@ -2,12 +2,13 @@
 
 main()
 {
-	auto c = world(10, 10, 6);
+	auto c = world(4, 4, 3);
 	c.print_layout();
 	int i;
-	while (true) {
+	bool game_over = false;
+	while (!game_over) {
 		c.print_state();
-		std::cout << "Choose an action (keypad arrows or 5 to shoot)\n> " << std::flush;
+		std::cout << "Choose an action (keypad arrows, 5 to shoot or 0 to pick treasure)\n> " << std::flush;
 		std::cin >> i;
 		switch (i) {
 		case 8:
@@ -25,9 +26,12 @@ main()
 		case 5:
 			c.shoot();
 			break;
-
+		case 0:
+			game_over = c.pick_treasure();
+			break;
 		default:
 			break;
 		}
 	}
+	std::cout << "You made " << c.get_score();
 }

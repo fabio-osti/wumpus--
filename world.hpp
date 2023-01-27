@@ -35,7 +35,7 @@ public:
 		if ((hero.current_cell_.x() == 0 && hero.facing_direction_ == direction::south) ||
 			(hero.current_cell_.x() == dungeon.x_size() && hero.facing_direction_ == direction::north) ||
 			(hero.current_cell_.y() == 0 && hero.facing_direction_ == direction::west) ||
-			(hero.current_cell_.x() == dungeon.x_size() && hero.facing_direction_ == direction::east))
+			(hero.current_cell_.y() == dungeon.y_size() && hero.facing_direction_ == direction::east))
 			sensor = sensor + sensors::bump;
 		return sensor;
 	}
@@ -75,7 +75,6 @@ public:
 
 			return;
 		case direction::east:
-
 			if (dungeon.wumpus_.y() == hero.current_cell_.y() && dungeon.wumpus_.x() > hero.current_cell_.x()) {
 				hero.score_ += 100;
 				dungeon.wumpus_dead = true;
@@ -83,7 +82,6 @@ public:
 
 			return;
 		case direction::west:
-
 			if (dungeon.wumpus_.y() == hero.current_cell_.y() && dungeon.wumpus_.y() < hero.current_cell_.y()) {
 				hero.score_ += 100;
 				dungeon.wumpus_dead = true;
@@ -92,6 +90,19 @@ public:
 			return;
 		}
 	}
+
+	bool pick_treasure()
+	{
+		hero.score_--;
+		if (dungeon.treasure_at(hero.current_cell_)) {
+			hero.score_ += 1000;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	int get_score() { return hero.score_; }
 
 	void print_state()
 	{
