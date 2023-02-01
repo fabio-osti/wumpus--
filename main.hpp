@@ -13,4 +13,4 @@
 #include "cell.hpp"
 #include "dungeon.hpp"
 #include "hero.hpp"
-#include "world.hpp"
+#include "game.hpp"

@@ -1,11 +1,11 @@
-#include "includes.hpp"
-class world
+#include "main.hpp"
+class game
 {
 	hero hero;
 	dungeon dungeon;
 
 public:
-	world(int x_size, int y_size, int n_holes) : hero(), dungeon(x_size, y_size, n_holes) {}
+	game(int x_size, int y_size, int n_holes) : hero(), dungeon(x_size, y_size, n_holes) {}
 
 	bool move_hero_forward()
 	{

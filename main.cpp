@@ -1,8 +1,8 @@
-#include "includes.hpp"
+#include "main.hpp"
 
 main()
 {
-	auto c = world(4, 4, 2);
+	auto c = game(4, 4, 2);
 	c.print_dungeon_layout();
 	int i;
 	bool game_over = false;

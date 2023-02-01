@@ -1,4 +1,4 @@
-#include "includes.hpp"
+#include "main.hpp"
 #define SCORE_ACTION -1
 #define SCORE_SHOOT -10
 #define SCORE_WIN 1000
@@ -11,7 +11,7 @@ class hero
 	bool arrow_used_ = false;
 
 public:
-	// friend class world;
+	// friend class game;
 
 	int score() const { return score_; }
 	cell current_cell() const { return current_cell_; }

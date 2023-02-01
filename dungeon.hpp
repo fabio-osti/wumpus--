@@ -1,4 +1,4 @@
-#include "includes.hpp"
+#include "main.hpp"
 #define INIT_H cell(0, 0)
 class dungeon
 {
@@ -25,8 +25,8 @@ class dungeon
 	}
 
 public:
-	// friend class world;
-	
+	// friend class game;
+
 	dungeon(int x_size, int y_size, int n_holes)
 		: x_size_(x_size), y_size_(y_size), wumpus_(get_unused_cell()), treasure_(get_unused_cell())
 	{
