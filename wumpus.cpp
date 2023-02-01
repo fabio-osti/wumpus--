@@ -2,8 +2,8 @@
 
 main()
 {
-	auto c = world(4, 4, 3);
-	c.print_layout();
+	auto c = world(4, 4, 2);
+	c.print_dungeon_layout();
 	int i;
 	bool game_over = false;
 	while (!game_over) {
@@ -12,7 +12,7 @@ main()
 		std::cin >> i;
 		switch (i) {
 		case 8:
-			c.move_hero_forward();
+			game_over = !c.move_hero_forward();
 			break;
 		case 4:
 			c.turn_hero_left();
@@ -33,5 +33,5 @@ main()
 			break;
 		}
 	}
-	std::cout << "You made " << c.get_score();
+	std::cout << "\n>>> You made " << c.get_score() << " points!!! <<<\n" << std::endl;
 }
