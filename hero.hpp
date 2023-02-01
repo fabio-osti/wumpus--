@@ -19,7 +19,7 @@ public:
 
 	void move_forward(auto& out_of_bounds)
 	{
-		score_ -= SCORE_ACTION;
+		score_ += SCORE_ACTION;
 		// moves forward if not out of bounds
 		cell new_cell = current_cell_ + facing_direction_;
 		if (out_of_bounds(new_cell))
@@ -30,7 +30,7 @@ public:
 
 	bool move_forward(int x_size, int y_size)
 	{
-		score_ -= SCORE_ACTION;
+		score_ += SCORE_ACTION;
 		// moves forward if not out of bounds
 		cell new_cell = current_cell_ + facing_direction_;
 		if (new_cell.x() > x_size || new_cell.x() < 0 || new_cell.y() > y_size || new_cell.y() < 0)

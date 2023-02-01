@@ -29,9 +29,9 @@ public:
 		if (dungeon.wumpus_dead())
 			sensor = sensor + sensors::scream;
 		if ((hero.current_cell().x() == 0 && hero.facing_direction() == direction::south) ||
-			(hero.current_cell().x() == dungeon.x_size() && hero.facing_direction() == direction::north) ||
+			(hero.current_cell().x() == dungeon.x_size() - 1 && hero.facing_direction() == direction::north) ||
 			(hero.current_cell().y() == 0 && hero.facing_direction() == direction::west) ||
-			(hero.current_cell().y() == dungeon.y_size() && hero.facing_direction() == direction::east))
+			(hero.current_cell().y() == dungeon.y_size() - 1 && hero.facing_direction() == direction::east))
 			sensor = sensor + sensors::bump;
 		return sensor;
 	}
